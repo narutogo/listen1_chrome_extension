@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
-    <meta name="description" content="" /> 
+    <meta name="description" content="" />
     <meta name="author" content="" />
     <title ng-bind="document_title">Listen 1</title>
 
@@ -1832,7 +1832,15 @@
                     </div>
                   </div>
                   <div class="footer">
-                   
+                    <div class="left-control">
+                      <span class="icon li-previous" prev-track=""></span>
+                      <span
+                        class="icon li-play play"
+                        ng-class="isPlaying? 'li-pause': 'li-play'"
+                        play-pause-toggle=""
+                      ></span>
+                      <span class="icon li-next" next-track=""></span>
+                    </div>
                     <div class="main-info">
                       <div class="logo-banner" ng-if="playlist.length == 0">
                         <svg
@@ -1940,7 +1948,7 @@
                       </div>
                     </div>
                     <div class="right-control">
-                      <div class="left-control">
+                      <div class="left-control-mobile">
                         <span class="icon li-previous" prev-track=""></span>
                         <span
                           class="icon li-play play"
