@@ -130,12 +130,30 @@ angular.module('listenone').controller('ProfileController', [
     $scope.setTheme = (theme) => {
       $scope.theme = theme;
 
-      const themeFiles = {
+      let themeFiles = {
         white: ['css/iparanoid.css', 'css/common.css'],
         black: ['css/origin.css', 'css/common.css'],
         white2: ['css/iparanoid2.css', 'css/common2.css'],
         black2: ['css/origin2.css', 'css/common2.css'],
       };
+
+      const mediaQ = window.matchMedia('(max-width:769px)');
+      function changeCss (e) {
+        if (e.matches) {
+           themeFiles = {
+            white: ['css/iparanoid.css', 'css/common-m.css'],
+            black: ['css/origin.css', 'css/common-m.css'],
+            white2: ['css/iparanoid2.css', 'css/common2-m.css'],
+            black2: ['css/origin2.css', 'css/common2-m.css'],
+          };
+          console.log("css ca");
+        }
+      };
+      changeCss(mediaQ);
+      mediaQ.addEventListener('change', changeCss);
+        
+      
+
       // You can change the language during runtime
       if (themeFiles[theme] !== undefined) {
         const keys = ['theme-css', 'common-css'];
