@@ -541,7 +541,7 @@ angular.module('listenone').controller('PlayController', [
               ).offsetHeight;
               if (useModernTheme()) {
                 windowHeight =
-                  document.querySelector('body').offsetHeight - 100;
+                  document.querySelector('body').offsetHeight + 600;
               }
 
               const adjustOffset = 30;
@@ -652,7 +652,7 @@ angular.module('listenone').controller('PlayController', [
             $rootScope.page_title = {
               title: track.title,
               artist: track.artist,
-              status: 'playing',
+              status: 'playing', 
             };
             if (lastfm.isAuthorized()) {
               lastfm.sendNowPlaying(track.title, track.artist, () => {});
@@ -712,7 +712,7 @@ angular.module('listenone').controller('PlayController', [
               }
               if ($rootScope.page_title.status !== '') {
                 if ($rootScope.page_title.status === 'playing') {
-                  title += '▶ ';
+                  title += '�?';
                 } else if ($rootScope.page_title.status === 'paused') {
                   title += '❚❚ ';
                 }
@@ -782,10 +782,10 @@ angular.module('listenone').controller('PlayController', [
     // description: '播放/暂停',
     hotkeys('p', l1Player.togglePlayPause);
 
-    // description: '上一首',
+    // description: '上一�?,
     hotkeys('[', l1Player.prev);
 
-    // description: '下一首',
+    // description: '下一�?,
     hotkeys(']', l1Player.next);
 
     // description: '静音/取消静音',
@@ -794,7 +794,7 @@ angular.module('listenone').controller('PlayController', [
     // description: '打开/关闭播放列表',
     hotkeys('l', $scope.togglePlaylist);
 
-    // description: '切换播放模式（顺序/随机/单曲循环）',
+    // description: '切换播放模式（顺�?随机/单曲循环�?,
     hotkeys('s', $scope.changePlaymode);
 
     // description: '音量增加',

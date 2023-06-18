@@ -5,12 +5,12 @@ body {
   font-size: var(--text-default-size);
   color: var(--text-default-color);
   font-family: system-ui, 'PingFang SC', STHeiti, sans-serif;
- 
 }
 body .body{
   background-color: var(--color-body-bg);
   transition: background 0.2s;
   border-radius: 8px;
+  /* height: 100%; */
 }
 a {
   cursor: pointer;
@@ -103,7 +103,7 @@ svg {
 /* tools utils */
 .flex-scroll-wrapper {
   flex: 1;
-  height: 100px;
+  /* height: 90px; */
   /* overflow-y: scroll; */
   scrollbar-width: thin;
   scrollbar-color: var(--scroll-color) var(--content-background-color);
@@ -145,22 +145,26 @@ svg {
 /* main framework start */
 .wrap {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   flex-direction: column;
   margin: auto;
+  margin-bottom: 110px;
 }
 
 /* split screen to up/down 2 parts */
 .main {
   flex: 1;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
+  flex-direction: column;
+  /* height: 90px; */
 }
 
 /* split main to left/right 2 parts */
 .main .sidebar {
   padding-left: 1vw;
   display: flex;
+  height: 250px;
   flex-direction: column;
 }
 
@@ -216,7 +220,7 @@ svg {
   height: calc(100vh - 130px);
 }
 .main .sidebar-content.opensidebar {
-  width: 200px;
+  width: 100%;
 }
 .sidebar-content .logo-content {
   display: flex;
@@ -254,7 +258,6 @@ svg {
 .sidebar .sidebar-scroll-content {
   overflow-x: hidden;
   overflow-y: overlay;
-
   height: calc(100% - 80px);
 }
 .sidebar .sidebar-scroll-content::-webkit-scrollbar {
@@ -268,7 +271,7 @@ svg {
   width: 2px;
 }
 .sidebar .menu-control {
-  height: 74px;
+  height: 0;
   -webkit-app-region: drag;
 }
 
@@ -381,13 +384,13 @@ https://stackoverflow.com/questions/19889615/can-an-angular-directive-pass-argum
   flex: 0 0 45px;
   line-height: 46px;
   vertical-align: middle;
-  padding: 0 13px;
+  /* padding: 0 13px; */
   flex: 1;
 }
 
 .navigation .search {
   display: flex;
-  width: 200px;
+  width: 150px;
   height: 32px;
   background: var(--search-input-background-color);
   border-style: none;
@@ -643,6 +646,9 @@ ul.detail-songlist li .desc div.title:hover{
 .page .playlist-detail .detail-head {
   display: flex;
   margin-top: 11px;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
   margin-bottom: 72px;
 }
 
@@ -898,6 +904,7 @@ ul.detail-songlist li .desc div.title:hover{
 .playsong-detail {
   position: absolute;
   top: 0;
+  flex-direction: column;
   right: 0;
   left: 0;
   bottom: 0;
@@ -908,7 +915,7 @@ ul.detail-songlist li .desc div.title:hover{
 .playsong-detail .detail-head {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-right: 32px;
   margin-top: 24px;
   align-items: center;
@@ -918,12 +925,15 @@ ul.detail-songlist li .desc div.title:hover{
 
 .playsong-detail .detail-head-cover {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .playsong-detail .detail-head img {
   border-radius: 10px;
-  width: 54vh;
-  height: 54vh;
+  width: 24vh;
+  height: 24;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -935,13 +945,14 @@ ul.detail-songlist li .desc div.title:hover{
 .playsong-detail .detail-songinfo {
   flex: 1;
   font-weight: 600;
+  margin-top: 0px;
   color: var(--color-text);
   margin-right: 24px;
   z-index: 0;
 }
 .playsong-detail .detail-head-title {
   max-width: 54vh;
-  margin-top: 24px;
+  /* margin-top: 24px; */
 }
 
 .playsong-detail .title {
@@ -1010,14 +1021,14 @@ ul.detail-songlist li .desc div.title:hover{
 }
 .playsong-detail .detail-songinfo .lyric {
   font-size: 16px;
-  height: 100%;
+  height: 190px;
+  /* margin-top: 100px; */
   display: flex;
   flex-direction: column;
   padding-left: 78px;
   max-width: 460px;
   overflow-y: auto;
   transition: 0.5s;
-
   color: var(--lyric-default-color);
 }
 .playsong-detail .detail-songinfo .lyric::-webkit-scrollbar {
@@ -1029,9 +1040,10 @@ ul.detail-songlist li .desc div.title:hover{
 }
 .playsong-detail .detail-songinfo .lyric .placeholder {
   margin-top: 50vh;
+  display: none;
 }
 .playsong-detail .detail-songinfo .lyric p {
-  padding: 18px;
+  padding: 5px;
   transition: all 0.2s;
   border-radius: 12px;
   margin: 0;
@@ -1054,7 +1066,7 @@ ul.detail-songlist li .desc div.title:hover{
 .playsong-detail .detail-songinfo .lyric p.highlight {
   color: var(--text-default-color);
   opacity: 1;
-  font-size: 26px;
+  font-size: 20px;
 }
 .coverbg .playsong-detail .detail-songinfo .lyric p.highlight {
   color: var(--lyric-important-on-cover-color);
@@ -1232,6 +1244,7 @@ ul.detail-songlist li .artist {
 
 ul.detail-songlist li .album {
   flex: 1;
+  margin-left: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -1239,7 +1252,6 @@ ul.detail-songlist li .album {
   max-height: 38px; */
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-
   display: flex;
   font-size: 16px;
   opacity: 0.88;
@@ -1460,6 +1472,7 @@ ul.detail-songlist li .tools .icon {
 .page .searchbox .search-pagination {
   text-align: center;
   padding: 32px;
+  /* margin-bottom: 200px; */
 }
 .page .searchbox .search-pagination .btn-pagination {
   padding: 8px 16px;
@@ -1608,7 +1621,7 @@ svg.searchspinner {
 .footer .footer-main {
   position: relative;
   z-index: 140;
-  height: 100px;
+  height: 210px;
   border-radius: 10px;
   display: flex;
   flex: 1;
@@ -1626,14 +1639,19 @@ svg.searchspinner {
   width: 100%;
   display: flex;
   height: 100px;
+  flex-direction: column;
   position: absolute;
+  height: 200px;
+  opacity: 1;
+  /* filter: blur(1px); */
   bottom: 0;
 }
 .footer .left-control {
-  flex: 0 0 36%;
+  flex: 1;
   display: flex;
   align-items: center;
   overflow: hidden;
+  height: 50px;
   transition: 0.5s;
   opacity: 1;
 }
@@ -1774,8 +1792,8 @@ svg.searchspinner {
   }
 }
 .footer .cover {
-  height: 90px;
-  width: 90px;
+  height: 70px;
+  width: 70px;
   object-fit: cover;
   position: relative;
   color: transparent;
@@ -1941,9 +1959,10 @@ svg.searchspinner {
   max-width: 356px;
   margin-left: 37px;
   position: relative;
+  margin-bottom: 30px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 .footer .left-control .detail .ctrl {
@@ -1968,9 +1987,10 @@ svg.searchspinner {
   color: var(--text-default-color);
   min-width: 0px;
   overflow: hidden;
+  margin-right: 10px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin: 5px 0;
+  margin: 5px 0 20;
   font-size: 18px;
   font-weight: 600;
 }
@@ -2013,14 +2033,14 @@ svg.searchspinner {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  width: 100%;
+  width: 400px;
   display: none;
 }
 .footer .main-info .playbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 250px;
 }
 .footer .main-info .playbar .playbar-clickable {
   margin: 5px 10px 5px 0;
@@ -2045,7 +2065,7 @@ svg.searchspinner {
 .footer .main-info .barbg .cur .btn {
   background: var(--footer-player-bar-cur-button-color);
   height: 8px;
-  width: 2px;
+  /* width: 20px; */
   position: absolute;
   right: -2px;
   top: -5px;
@@ -2061,7 +2081,7 @@ svg.searchspinner {
 }
 
 .volume-ctrl {
-  width: 50%;
+  width: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2102,10 +2122,9 @@ svg.searchspinner {
   z-index: 120;
   bottom: 120px;
   height: 0;
-  opacity: 0;
+  /* opacity: 0; */
   box-sizing: border-box;
   border: 1px solid var(--white--black);
-
   left: 0;
   -webkit-app-region: no-drag;
   transition: all 0.3s;
@@ -2119,6 +2138,8 @@ svg.searchspinner {
 }
 .footer .menu.slideup {
   bottom: 125px;
+  /* margin-right: 30px; */
+  width: 100%;
   height: 500px;
   opacity: 1;
   box-sizing: border-box;
@@ -2137,7 +2158,7 @@ svg.searchspinner {
 .footer .menu .menu-header .menu-title {
   flex: 1;
   padding: 0 20px;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-default-color);
 }
@@ -2288,10 +2309,10 @@ svg.searchspinner {
 }
 
 .footer .right-control {
-  flex: 0 0 36%;
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .footer .right-control .playlist-toggle {
@@ -2565,7 +2586,7 @@ svg.searchspinner {
   user-select: none;
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .source-list .source-button {
