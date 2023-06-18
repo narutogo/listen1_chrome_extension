@@ -140,7 +140,6 @@ svg {
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   /* overflow: hidden; */
 }
 
@@ -731,8 +730,6 @@ https://stackoverflow.com/questions/19889615/can-an-angular-directive-pass-argum
 .page .playsong-detail .detail-songinfo .lyric {
   position: relative;
   flex: 0 0 260px;
-  /* align-items: center; */
-  /* justify-content: center; */
   overflow-y: scroll;
   color: var(--lyric-default-color);
   scrollbar-width: thin;
@@ -762,7 +759,6 @@ ul.detail-songlist {
   padding: 0 25px;
   position: relative;
   margin-top: 30px;
-  /* margin-bottom: 100px; */
 }
 
 ul.detail-songlist .playlist-search {
@@ -1166,7 +1162,6 @@ svg.searchspinner {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  /* flex-wrap: wrap; */
   flex-direction: column;
 }
 
@@ -1176,7 +1171,6 @@ svg.searchspinner {
   height: 20px;
   z-index: 1;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .footer .left-control .icon {
@@ -1369,7 +1363,6 @@ svg.searchspinner {
   height: 370px;
   bottom: -311px;
   left: 30px;
-  /* display: none; */
   right: 30px;
   -webkit-app-region: no-drag;
   transition: all 0.3s;
@@ -1567,7 +1560,6 @@ svg.searchspinner {
 .footer .right-control .volume-ctrl {
   flex: 1;
   display: flex;
-  /* margin-right: 40px; */
 }
 
 .footer .right-control .volume-ctrl .icon {
@@ -1578,7 +1570,6 @@ svg.searchspinner {
 }
 .footer .right-control .volume-ctrl .m-pbar {
   flex: 1;
-  /* margin-right: 50px; */
 }
 
 .footer .right-control .volume-ctrl .barbg {
