@@ -147,13 +147,10 @@ angular.module('listenone').controller('ProfileController', [
             white2: ['css/iparanoid2.css', 'css/common2-m.css'],
             black2: ['css/origin2.css', 'css/common2-m.css'],
           };
-          console.log("css ca");
         }
       };
       changeCss(mediaQ);
       mediaQ.addEventListener('change', changeCss);
-    
-
 
       // You can change the language during runtime
       if (themeFiles[theme] !== undefined) {

@@ -54,7 +54,8 @@ angular.module('listenone').controller('PlayController', [
   '$anchorScroll',
   '$location',
   '$rootScope',
-  ($scope, $timeout, $log, $anchorScroll, $location, $rootScope) => {
+  '$window',
+  ($scope, $timeout, $log, $anchorScroll, $location, $rootScope, $window) => {
     $scope.menuHidden = true;
     $scope.volume = l1Player.status.volume;
     $scope.mute = l1Player.status.muted;
@@ -541,7 +542,10 @@ angular.module('listenone').controller('PlayController', [
               ).offsetHeight;
               if (useModernTheme()) {
                 windowHeight =
-                  document.querySelector('body').offsetHeight + 500;
+                document.querySelector('body').offsetHeight - 100;
+                if ($window.innerWidth < 769) // for mobile css
+                  windowHeight += 650;
+                //document.querySelector('body').offsetHeight + 550;
               }
 
               const adjustOffset = 30;
