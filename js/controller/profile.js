@@ -4,8 +4,8 @@
 /* eslint-disable no-param-reassign */
 /* global angular i18next sourceList platformSourceList */
 angular.module('listenone').controller('ProfileController', [
-  '$scope',
-  ($scope) => {
+  '$scope','$window',
+  ($scope, $window) => {
     let defaultLang = 'zh-CN';
     const supportLangs = ['zh-CN', 'en-US'];
     if (supportLangs.indexOf(navigator.language) !== -1) {
@@ -137,6 +137,7 @@ angular.module('listenone').controller('ProfileController', [
         black2: ['css/origin2.css', 'css/common2.css'],
       };
 
+      // add for mobile css, postfix '-m' for mobile css file 
       const mediaQ = window.matchMedia('(max-width:769px)');
       function changeCss (e) {
         if (e.matches) {
@@ -151,8 +152,8 @@ angular.module('listenone').controller('ProfileController', [
       };
       changeCss(mediaQ);
       mediaQ.addEventListener('change', changeCss);
-        
-      
+    
+
 
       // You can change the language during runtime
       if (themeFiles[theme] !== undefined) {
@@ -167,5 +168,24 @@ angular.module('listenone').controller('ProfileController', [
       });
     };
     $scope.setTheme(defaultTheme);
+    
+    // responsive change css file
+    let smallScreen = $scope.innerWidth < 769;
+    let w = angular.element($window);
+    w.bind('resize', ()=> {
+      let screenWidth = $window.innerWidth;
+      let newTheme = localStorage.getObject('theme');
+      if (newTheme === undefined)
+        newTheme = defaultTheme;
+      if (smallScreen && screenWidth > 769) {
+        $scope.setTheme(newTheme);
+        smallScreen = false;
+      }
+      if (!smallScreen && screenWidth <= 768) {
+        $scope.setTheme(newTheme);
+        smallScreen = true;
+      }
+     
+    });
   },
 ]);
